@@ -8,6 +8,7 @@ const { Camera, Filesystem, Storage } = Plugins;
   providedIn: 'root'
 })
 export class PhotoService {
+  public photos: Photo[] = [];
 
   constructor() { }
 
@@ -18,5 +19,17 @@ export class PhotoService {
       source: CameraSource.Camera, 
       quality: 100 
     });
+
+    this.photos.unshift({
+      filepath: "soon...",
+      webviewPath: capturedPhoto.webPath
+    });
   }
+
 }
+
+export interface Photo {
+  filepath: string;
+  webviewPath: string;
+}
+
